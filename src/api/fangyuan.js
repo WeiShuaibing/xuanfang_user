@@ -19,6 +19,15 @@ export function getAllWithCollection(loupanId) {
     }
   })
 }
+export function getAllWithOnlyCollection(loupanId) {
+  return request({
+    url: BASE_URL + 'fangyuan/getAllWithOnlyCollection',
+    method: 'GET',
+    params: {
+      loupanId
+    }
+  })
+}
 
 export function deleteById(id) {
   return request({

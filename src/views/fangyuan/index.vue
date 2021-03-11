@@ -25,12 +25,24 @@
           </el-table-column>
           <el-table-column prop="huxing.remark" label="户型备注" />
           <el-table-column prop="huxing.area" label="户型面积(㎡)" />
-          <el-table-column label="操作" width="300">
+          <el-table-column prop="status" label="状态">
+            <template slot-scope="scope">
+              <el-tag v-if="scope.row.status === 0">预定中</el-tag>
+              <el-tag v-if="scope.row.status === 1" type="success">已预定</el-tag>
+              <el-tag v-if="scope.row.status === 2" type="info">已成交</el-tag>
+            </template>
+          </el-table-column>
+          <el-table-column label="操作" width="330">
             <template slot-scope="scope">
               <el-button type="success" size="small" @click="dingjin(scope.row)">交付定金选房</el-button>
               <el-button type="primary" size="small" @click="detail(scope.row)">详情</el-button>
+              <el-tooltip class="item" effect="dark" content="收藏" placement="top-start">
               <el-button v-if="!scope.row.haveCollection" type="" size="small" icon="el-icon-star-off" @click="toCollection(scope.row.id)"></el-button>
+              </el-tooltip>
               <el-button v-if="scope.row.haveCollection" type="warning" size="small" icon="el-icon-star-off"></el-button>
+              <el-tooltip class="item" effect="dark" content="分享" placement="top-start">
+                <el-button type="" size="small" icon="el-icon-share" @click="toShare"></el-button>
+              </el-tooltip>
             </template>
           </el-table-column>
         </el-table>
@@ -101,6 +113,9 @@ export default {
     this.getAllFangyaunInfo()
   },
   methods: {
+    toShare() {
+      window.open('https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=www.baidu.com&sharesource=qzone&title=这里有刚房源，快来围观&pics=%E5%88%86%E4%BA%ABicon&summary=我觉得这个房子不错哦，赶紧来看看')
+    },
     toCollection(id) {
       add({
         fangyuanId: id,

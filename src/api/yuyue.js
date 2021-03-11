@@ -9,3 +9,10 @@ export function getMyYuyue(obj) {
   })
 }
 
+export function getAllMyYuyue() {
+  return request({
+    url: BASE_URL + 'yuyue/getAllMyYuyue',
+    method: 'GET'
+  })
+}
+

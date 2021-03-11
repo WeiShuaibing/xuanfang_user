@@ -173,6 +173,36 @@ export const asyncRoutes = [
       }
     ]
   },
+  // 预约记录
+  {
+    path: '/yuyueRecord',
+    component: Layout,
+    redirect: '/yuyueRecord/index',
+    hidden: false,
+    children: [
+      {
+        path: 'yuyueRecord',
+        component: () => import('@/views/yuyueRecord/index'),
+        name: 'YuyueRecordIndex',
+        meta: { title: '我的预约记录', icon: 'drag', noCache: true }
+      }
+    ]
+  },
+  // 预约记录
+  {
+    path: '/xuanfangRecord',
+    component: Layout,
+    redirect: '/xuanfangRecord/index',
+    hidden: false,
+    children: [
+      {
+        path: 'xuanfangRecord',
+        component: () => import('@/views/xuanfangRecord/index'),
+        name: 'XuanfangRecordIndex',
+        meta: { title: '我的选房记录', icon: 'drag', noCache: true }
+      }
+    ]
+  },
 
   {
     path: '/error',

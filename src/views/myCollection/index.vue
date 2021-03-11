@@ -58,7 +58,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { getAllWithCollection, pay } from '../../api/fangyuan'
+import { getAllWithOnlyCollection, pay } from '../../api/fangyuan'
 
 export default {
   name: 'MyClollectionIndex',
@@ -114,7 +114,7 @@ export default {
       })
     },
     getAllFangyaunInfo() {
-      getAllWithCollection('').then(res => {
+      getAllWithOnlyCollection('').then(res => {
         this.tableData = res.data
       })
     },
