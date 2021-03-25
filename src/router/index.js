@@ -103,7 +103,7 @@ export const asyncRoutes = [
     path: '/test',
     component: Layout,
     redirect: '/test/index',
-    hidden: false,
+    hidden: true,
     children: [
       {
         path: 'index',

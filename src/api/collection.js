@@ -19,6 +19,16 @@ export function remove(id) {
   })
 }
 
+export function deleteByFangyuanIdAndUserId(fangyuanId) {
+  return request({
+    url: BASE_URL + 'collection/deleteByFangyuanIdAndUserId',
+    method: 'GET',
+    params: {
+      fangyuanId
+    }
+  })
+}
+
 export function getMyCollection(userId) {
   return request({
     url: BASE_URL + 'collection/getMyCollection',

@@ -16,6 +16,13 @@ export function getInfo(token) {
   })
 }
 
+export function getAllUser() {
+  return request({
+    url: BASE_URL + 'user/getAll',
+    method: 'get'
+  })
+}
+
 export function logout() {
   return request({
     url: BASE_URL + 'user/logout',

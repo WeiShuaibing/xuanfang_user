@@ -6,7 +6,7 @@
     </el-row>
     <el-row>
       <el-table :data="tableData" border style="width: 100%">
-        <el-table-column prop="id" label="ID" width="150" />
+        <el-table-column prop="id" label="房源ID" width="150" />
         <el-table-column prop="homeNum" label="房间号" />
         <el-table-column prop="price" label="价格" />
         <el-table-column prop="loupan.name" label="楼盘名字" />
@@ -22,6 +22,7 @@
           <template slot-scope="scope">
             <el-button type="success" size="small" @click="dingjin(scope.row)">交付定金选房</el-button>
             <el-button type="primary" size="small" @click="detail(scope.row)">详情</el-button>
+            <el-button type="warning" size="small" @click="remove(scope.row.id)">移除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -59,6 +60,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { getAllWithOnlyCollection, pay } from '../../api/fangyuan'
+import { deleteByFangyuanIdAndUserId } from '../../api/collection'
 
 export default {
   name: 'MyClollectionIndex',
@@ -82,6 +84,11 @@ export default {
     this.getAllFangyaunInfo()
   },
   methods: {
+    remove(id) {
+      deleteByFangyuanIdAndUserId(id).then(res => {
+        this.getAllFangyaunInfo()
+      })
+    },
     detail(row) {
       this.detailObj = row
       this.dialogVisible = true

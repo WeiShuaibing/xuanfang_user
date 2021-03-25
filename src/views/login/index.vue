@@ -139,15 +139,11 @@ export default {
     enshureRegister() {
       register(this.userForm).then(res => {
         this.registerDialogVisible = false
+        this.$message.success('您已注册成功，请登录')
       })
     },
     register() {
       this.registerDialogVisible = true
-    },
-    rolesChange(value) {
-      if (value === 2) {
-        window.location.href = 'http://localhost:8999'
-      }
     },
     checkCapslock({ shiftKey, key } = {}) {
       if (key && key.length === 1) {

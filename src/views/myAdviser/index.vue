@@ -29,7 +29,7 @@
           <el-col :span="6"><h2 style="color: #20a0ff">我的置业顾问:</h2></el-col>
           <el-col :span="6" :offset="12">
               <el-popover v-if="haveYuyue === false" placement="top" width="290" v-model="visible">
-                <el-date-picker v-model="yuyueDate" type="datetime" placeholder="请选择预约时间"></el-date-picker>
+                <el-date-picker v-model="yuyueDate" value-format="yyyy-MM-dd HH:mm:ss" type="datetime" placeholder="请选择预约时间"></el-date-picker>
                 <div style="text-align: right; margin: 0">
                   <el-button size="mini" type="text" @click="visible = false">取消</el-button>
                   <el-button type="primary" size="mini" @click="enshureYuyue">确定</el-button>
